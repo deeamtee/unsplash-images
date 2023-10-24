@@ -5,9 +5,6 @@ import { useParams } from 'react-router-dom';
 function Photo({ photos }) {
   const getPhotoById = (photos, id) => photos.find(photo => photo.id === id);
 
-  console.log(useParams())
-
-  
   const { id } = useParams();
   const photo = getPhotoById(photos, id);
 
