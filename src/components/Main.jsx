@@ -3,25 +3,12 @@ import Button from './Button';
 import Card from './Card';
 import Input from './Input';
 import Spinner from './Spinner';
-import { useEffect, useState } from 'react';
 
-export const Main = ({ searchQuery, handleChange, isSubmitted, cards, onAction, onSubmit }) => {
-    const [state, setState] = useState(10);
-    
-    useEffect(() => {
-        onAction(state)
-    }, [])
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
-        onSubmit({ target: event.target, name: 'My form' })
-    }
-
+export const Main = ({ searchQuery, handleChange, isSubmitted, cards, onSubmit }) => {
     return (
         <div className='App'>
         <div className="App-content">
-          <form className="App-search" onSubmit={handleSubmit}>
+          <form className="App-search" onSubmit={onSubmit}>
             <Input placeholder={'Search free high-resolution photos'} onChange={handleChange} value={searchQuery} />
             <Button type='submit'>Search</Button>
           </form>
